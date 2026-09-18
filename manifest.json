@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "WikiMasters — Prix du marché",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Affiche le prix « Dernier » (+ moyenne, min/max, nb de ventes) directement sur les cartes WikiMasters, et permet de trier par prix.",
   "permissions": ["storage"],
   "host_permissions": [
@@ -9,22 +9,23 @@
     "https://cyrxjeppjqsxxjayfrur.supabase.co/*"
   ],
   "action": {
-    "default_popup": "popup/popup.html",
+    "default_popup": "popup.html",
     "default_title": "WikiMasters — Prix du marché"
   },
   "content_scripts": [
     {
       "matches": ["https://www.wiki-masters.com/*"],
       "js": [
-        "src/settings.js",
-        "src/cache.js",
-        "src/api.js",
-        "src/badges.js",
-        "src/sortview.js",
-        "src/main.js"
+        "settings.js",
+        "cache.js",
+        "api.js",
+        "badges.js",
+        "sortview.js",
+        "main.js"
       ],
-      "css": ["src/styles.css"],
+      "css": ["styles.css"],
       "run_at": "document_idle"
     }
-  ]
+  ],
+  "icons": {}
 }
