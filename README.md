@@ -50,8 +50,9 @@ barre de tri n'apparaît pas (ces pages n'ont pas de grille à trier). La liste 
 ajouté dedans (`SR · Thann │◈ 25`), le titre complet étant lu dans l'attribut `title` de la
 pastille, donc les titres tronqués à l'écran sont quand même résolus. Et chaque lot de cartes
 reçoit un **total** sous lui — `Total ◈ 139` face à `Total ◈ 950` — dans la liste comme dans le
-détail de l'échange. Les cartes sans vente enregistrée sont comptées à part (`· 1 sans prix`)
-plutôt que comme des zéros.
+détail de l'échange. Les **pièces** jointes à une offre (`3 wb`) sont ajoutées au total du côté
+où elles sont posées, et détaillées : `Total ◈ 23 · dont 3 en pièces`. Les cartes sans vente
+enregistrée sont comptées à part (`· 1 sans prix`) plutôt que comme des zéros.
 
 **Cache** — les prix sont stockés dans `chrome.storage.local` (12 h par défaut, réglable). Le
 premier chargement complet prend 1 à 3 min (une requête par carte, 5 en parallèle) ; ensuite
@@ -63,7 +64,8 @@ c'est instantané. Le bouton `⟳` force un rechargement.
 |---|---|
 | Badges sur les cartes | coupe l'affichage sans désinstaller |
 | Dernier / Moyenne / Min-Max / Ventes | chaque métrique séparément |
-| Badge sous la carte | décoché = badge superposé en bas de l'image |
+| Badge sous la carte | décoché = badge toujours superposé sur l'image |
+| Superposition : prix seul | en superposition, n'affiche que le dernier prix (reste dans l'infobulle) |
 | Raretés | `de la carte` (défaut, = ce que vaut *ta* copie) ou `toutes` |
 | Précharger toute la collection | lance le chargement complet dès l'ouverture de `/collection` |
 | Cache (heures) | fraîcheur des prix |
