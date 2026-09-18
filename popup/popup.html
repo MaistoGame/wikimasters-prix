@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0; width: 290px; padding: 14px;
+    background: #0c0c0c; color: #e5e5e5;
+    font: 500 13px/1.4 ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  h1 { margin: 0 0 2px; font-size: 14px; font-weight: 800; }
+  h1 span { color: #34d399; }
+  .sub { color: #737373; font-size: 11px; margin-bottom: 12px; }
+  fieldset { border: 1px solid rgba(255,255,255,.08); border-radius: 10px; margin: 0 0 10px; padding: 9px 10px; }
+  legend { color: #737373; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; padding: 0 4px; }
+  label.row { display: flex; align-items: center; gap: 8px; padding: 3px 0; cursor: pointer; }
+  label.row span { flex: 1; }
+  select, input[type=number] {
+    background: rgba(0,0,0,.4); color: #e5e5e5; border: 1px solid rgba(255,255,255,.1);
+    border-radius: 7px; padding: 4px 6px; font: inherit; width: 88px;
+  }
+  button {
+    all: unset; cursor: pointer; display: block; width: 100%; text-align: center;
+    padding: 8px; border-radius: 9px; font-weight: 700;
+    border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.05); color: #d4d4d4;
+  }
+  button:hover { background: rgba(255,255,255,.1); }
+  .info { color: #737373; font-size: 11px; margin-top: 8px; text-align: center; }
+</style>
+</head>
+<body>
+  <h1><span>◈</span> WikiMasters — Prix</h1>
+  <div class="sub">Prix du marché affichés sur les cartes.</div>
+
+  <fieldset>
+    <legend>Affichage</legend>
+    <label class="row"><input type="checkbox" id="badges"><span>Badges sur les cartes</span></label>
+    <label class="row"><input type="checkbox" id="showLast"><span>Dernier prix</span></label>
+    <label class="row"><input type="checkbox" id="showAvg"><span>Moyenne</span></label>
+    <label class="row"><input type="checkbox" id="showMinMax"><span>Min / Max</span></label>
+    <label class="row"><input type="checkbox" id="showCount"><span>Nombre de ventes</span></label>
+    <label class="row"><input type="checkbox" id="underCard"><span>Badge sous la carte</span></label>
+    <label class="row"><input type="checkbox" id="overlayCompact"><span>Superposition : prix seul</span></label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Données</legend>
+    <label class="row"><span>Raretés</span>
+      <select id="rarityMode">
+        <option value="card">de la carte</option>
+        <option value="all">toutes</option>
+      </select>
+    </label>
+    <label class="row"><input type="checkbox" id="autoPrefetch"><span>Précharger toute la collection</span></label>
+    <label class="row"><span>Cache (heures)</span><input type="number" id="ttlHours" min="1" max="168" step="1"></label>
+    <label class="row"><span>Requêtes //</span><input type="number" id="concurrency" min="1" max="8" step="1"></label>
+  </fieldset>
+
+  <button id="clear">Vider le cache des prix</button>
+  <div class="info" id="info"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
